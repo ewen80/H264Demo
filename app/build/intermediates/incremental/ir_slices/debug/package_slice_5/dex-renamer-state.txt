@@ -1,0 +1,4 @@
+#Fri Jul 13 13:22:45 CST 2018
+base.0=/home/wenliang/Workspace/android/H264Demo/app/build/intermediates/transforms/dexMerger/debug/6
+path.0=classes.dex
+renamed.0=classes.dex
