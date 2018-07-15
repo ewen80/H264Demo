@@ -41,30 +41,26 @@ public class MainActivity extends Activity {
 	private final static int VIDEO_WIDTH = 1280;
 	private final static int VIDEO_HEIGHT = 720;
 	private final static int TIME_INTERNAL = 30;
-	private final static int HEAD_OFFSET = 512;
+	private final static int HEAD_OFFSET = 10;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		mSurfaceView = (SurfaceView) findViewById(R.id.surfaceView1);
-		mReadButton = (Button) findViewById(R.id.btn_readfile);
-		mReadButton.setOnClickListener(new View.OnClickListener() {
+		mSurfaceView = findViewById(R.id.surfaceView1);
+		mReadButton = findViewById(R.id.btn_readfile);
+		mReadButton.setOnClickListener(v -> {
 
-			@Override
-			public void onClick(View v) {
-
-				if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)
-						!= PackageManager.PERMISSION_GRANTED) {
-					ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
-				} else {
-					play();
-				}
+            if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+            } else {
+                play();
+            }
 
 
-			}
-		});
+        });
 	}
 
 	@Override
